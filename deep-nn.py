@@ -29,6 +29,7 @@ model.summary()
 model.compile(Adam(lr=.05), 'binary_crossentropy', metrics=['accuracy'])
 # visualization
 plot_model(model, to_file="model.png", show_shapes=True, show_layer_names=True)
+# callback
 my_callbacks = [EarlyStopping(monitor="val_acc", patience=5, mode='max')]
 model.fit(X_train, y_train, epochs=100, verbose=1, callbacks=my_callbacks, validation_data=(X_test, y_test))
 
